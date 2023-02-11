@@ -64,7 +64,7 @@ hexo.extend.filter.register('after_post_render', (data) => {
     domutils.prepend(h1Section, wrapper)
   }
   // wrapper hx-section && wrapper body
-  for (let i = 2; i < 6; i++) {
+  for (let i = 2; i < 5; i++) {
     const sections = domutils.findAll((el) => el.name === `h${i}`, dom);
     for (let j = 0; j < sections.length; j++) {
       const item = sections[j]
@@ -83,7 +83,7 @@ hexo.extend.filter.register('after_post_render', (data) => {
   const h1Lists = domutils.findAll(el => el.name === 'div'
     && el.attribs.class === "h1-section", dom);
     for (const h1Section of h1Lists) {
-      for (let i = 2; i < 6; i++) {
+      for (let i = 2; i < 5; i++) {
         const sections = h1Section.children
           .filter(node => node.attribs?.class === `h${i}-section`)
         for (let j = 0; j < sections.length; j++) {
@@ -111,7 +111,7 @@ function checkSectionNextSibling(node) {
   // sibling.data: Text node
   if (sibling && (sibling.data || sibling.name == 'p' || sibling.name == 'pre'
     || sibling.name == 'table' || sibling.name == 'ul'
-    || sibling.name == 'ol' || sibling.name == 'h6' || sibling.name == 'blockquote')) {
+    || sibling.name == 'ol' || sibling.name == 'h5' || sibling.name == 'blockquote')) {
     return [sibling].concat(checkSectionNextSibling(sibling));
   }
   return [];

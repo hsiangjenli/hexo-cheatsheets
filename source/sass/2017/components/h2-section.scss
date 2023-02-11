@@ -233,7 +233,7 @@
   }
 
   /* Headings in between bodies */
-  &>h6 {
+  &>h5 {
     //h3
     @include font-size(-1);
     background: $gray-bg;

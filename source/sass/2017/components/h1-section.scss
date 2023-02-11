@@ -1,12 +1,12 @@
 /*
- * h2 section
+ * h1 section
  */
 
-/* Hide the first h2 heading */
-.h2-section {
+/* Hide the first h1 heading */
+.h1-section {
   overflow-wrap: break-word;
 
-  &:first-child:not(.-no-hide) > h2 {
+  &:first-child:not(.-no-hide) > h1 {
     display: none;
   }
 

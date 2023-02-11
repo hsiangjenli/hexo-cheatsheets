@@ -6,6 +6,7 @@
  * 1. Remove repeating backgrounds in all browsers (opinionated).
  * 2. Add box sizing inheritence in all browsers (opinionated).
  */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
 *,
 ::before,
 ::after {
@@ -1201,7 +1202,6 @@ html.WithJs.LoadDone .intro-content {
 .announcements-item > .body > p {
   margin: 0;
   padding: 0;
-  cursor: default;
 }
 .announcements-item > .body > p + p {
   margin-top: 1em;

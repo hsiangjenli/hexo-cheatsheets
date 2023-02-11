@@ -36,35 +36,35 @@ hexo.extend.filter.register('after_post_render', (data) => {
     }
   });
 
-  // wrapper h2-section
-  const h2Sections = domutils.findAll((el) => el.name === 'h2', dom);
+  // wrapper h1-section
+  const h1Sections = domutils.findAll((el) => el.name === 'h1', dom);
   dom = []
-  for (let i = 0; i < h2Sections.length; i++) {
-    const wrapper = new Element('div', { class: 'h2-section' });
-    let h2 = h2Sections[i], h2Section = h2;
+  for (let i = 0; i < h1Sections.length; i++) {
+    const wrapper = new Element('div', { class: 'h1-section' });
+    let h1 = h1Sections[i], h1Section = h1;
 
-    // add # to h2>a
-    const a = h2.children[0]
+    // add # to h1>a
+    const a = h1.children[0]
     a.children.push(new Text('#'))
     a.attribs.class = a.attribs.class.concat(" local-anchor anchor")
 
-    domutils.appendChild(wrapper, h2.cloneNode(true));
-    while (h2?.next) {
-      h2 = h2.next;
-      if (h2.prev?.prev) {
-        domutils.removeElement(h2.prev)
+    domutils.appendChild(wrapper, h1.cloneNode(true));
+    while (h1?.next) {
+      h1 = h1.next;
+      if (h1.prev?.prev) {
+        domutils.removeElement(h1.prev)
       }
-      if (h2?.name !== 'h2') {
-        domutils.appendChild(wrapper, h2.cloneNode(true));
+      if (h1?.name !== 'h1') {
+        domutils.appendChild(wrapper, h1.cloneNode(true));
       } else {
         break;
       }
     }
     dom.push(wrapper)
-    domutils.prepend(h2Section, wrapper)
+    domutils.prepend(h1Section, wrapper)
   }
   // wrapper hx-section && wrapper body
-  for (let i = 3; i < 6; i++) {
+  for (let i = 2; i < 6; i++) {
     const sections = domutils.findAll((el) => el.name === `h${i}`, dom);
     for (let j = 0; j < sections.length; j++) {
       const item = sections[j]
@@ -80,11 +80,11 @@ hexo.extend.filter.register('after_post_render', (data) => {
     }
   }
   // wrapper code-section-list 
-  const h2Lists = domutils.findAll(el => el.name === 'div'
-    && el.attribs.class === "h2-section", dom);
-    for (const h2Section of h2Lists) {
-      for (let i = 3; i < 6; i++) {
-        const sections = h2Section.children
+  const h1Lists = domutils.findAll(el => el.name === 'div'
+    && el.attribs.class === "h1-section", dom);
+    for (const h1Section of h1Lists) {
+      for (let i = 2; i < 6; i++) {
+        const sections = h1Section.children
           .filter(node => node.attribs?.class === `h${i}-section`)
         for (let j = 0; j < sections.length; j++) {
           const item = sections[j]

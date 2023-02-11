@@ -1,9 +1,20 @@
 <div class='actions'>
   <ul class='page-actions'>
-    <li class='link github -button hint--bottom' data-hint='<%= theme.githubToolTip %>'>
-      <a href='<%= theme.github %>'>
-        <span class='text -visible'><%= theme.githubToolTip %></span>
+
+    <li class='link github -button hint--bottom' data-hint='<%= theme.hexo_theme_text %>'>
+      <a href='<%= theme.hexo_theme %>'>
+        <span class='text -visible'>
+          <%= theme.hexo_theme_text %>
+        </span>
       </a>
     </li>
+
+    <li class='link github -button hint--bottom'>
+      <a href='<%= theme.github %>'></a>
+    </li>
+    <li class='link -button hint--bottom'><a href="<%= theme.blog %>"><i class="fa-brands fa-blogger"></i></a></li>
+    <li class='link -button hint--bottom'><a href="<%= theme.about %>"><i class="fa-solid fa-user-large"></i></a></li>
+
+
   </ul>
 </div>

@@ -149,7 +149,7 @@
     }
     &::after {
       content: '';
-      position: absolute;
+      // position: absolute;
       display: block;
       top: 0;
       left: 0;
@@ -373,3 +373,11 @@
 //     display: block;
 //   }
 // }
+
+h6 {
+  @include font-size(-1);
+  color: $gray-text;
+  font-weight: normal;
+  margin: 0;
+  padding: 4px 16px;
+}

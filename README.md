@@ -1,166 +1,89 @@
 # Hexo Cheatsheets Theme
-[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/glaze/cheatsheets)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e1cb0c0d-0fb7-47d5-a80a-7a991c5ee8b5/deploy-status)](https://cheatsheetspreview.netlify.com/)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/03fde2aadd09496690780e70470e4fa1)](https://www.codacy.com/manual/luyiping1011/hexo-cheatsheets?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=glazec/hexo-cheatsheets&amp;utm_campaign=Badge_Grade)
-[![CodeFactor](https://www.codefactor.io/repository/github/glazec/hexo-cheatsheets/badge)](https://www.codefactor.io/repository/github/glazec/hexo-cheatsheets)
 
 A new **cheatsheets** theme for Hexo.
 The design is from [devhints](http://devhints.io)
 
-- [Preview](http://cheatsheets.inevitable.tech)
-- [A post about it](https://www.inevitable.tech/posts/59f1905d/)
-
 ## Installation
-
-### Install
-
+### Install manually
 ```bash
-$ git clone https://github.com/glazec/hexo-cheatsheets.git
+npm install hexo-cli -g
+npm install make -g
+npm install -g sass
+```
+### Creating an environment using Docker
+```yaml
+FROM node:17-alpine
+
+RUN npm install hexo-cli -g
+RUN npm install make -g
+RUN npm install -g sass
+
+RUN set -x \
+    && . /etc/os-release \
+    && case "$ID" in \
+        alpine) \
+            apk add --no-cache bash git openssh \
+            ;; \
+        debian) \
+            apt-get update \
+            && apt-get -yq install bash git openssh-server \
+            && apt-get -yq clean \
+            && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+            ;; \
+    esac \
+    && yarn bin || ( npm install --global yarn && npm cache clean ) \
+    && git --version && bash --version && ssh -V && npm -v && node -v && yarn -v
 ```
 
-### Enable
+## Init project
+### Currently dir
+```bash
+hexo init .
+```
+### The generated project structure
+```yaml
+.
+├── Dockerfile
+├── Makefile
+├── README.md
+├── _config.yml
+├── compose-dev.yaml
+├── db.json
+├── node_modules
+├── package.json
+├── scaffolds
+├── source
+├── themes (You should put your theme in this folder)
+│   └── hexo-cheatsheets
+└── yarn.lock
+```
+### cd to `themes`
+```bash
+cd themes
+git clone https://github.com/hsiangjenli/hexo-cheatsheets.git
+```
 
-Modify `theme` setting in `_config.yml` to `hexo-cheatsheets`.
-
-Disable default code highlight plugin in `_config.yml`.
-
-```yml
+### Modify `theme` setting in `_config.yml` to `hexo-cheatsheets`
+### Disable default code `highlight` plugin in `_config.yml`
+```yaml
 highlight:
   enable: false
 ```
 
-### Update
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
+## Posts format
+### Header's meta data
+```yaml
+---
+title: Hello World
+date: 2023-02-11 
+tags: hello-world
+categories: hello-world
+version: 0.10
+---
+...
 ```
 
-## Configuration
-
-```yml
-favicon: "favicon url"
-github: "the link the github button point to"
-githubToolTip: "Text displayed when hovering on the github button"
-recommend:
-  enable: true # whether to open the top
-```
-
-## Writing
-
-### Code
-
-when using tht code block in the markdown, please write the language. Otherwise the highlight will not work.
-The following example is correct.(Please **omit** the last dot, thant is a render issue)
-
-```markdown
-```yml
-favicon: "favicon url"
-github: "the link the github button point to"
-githubToolTip: "Text displayed when hovering on the github button"
-```·
-```
-
-### Three Columns
-
-````markdown
-### Three Columns
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
-```
-````
-
-### Two Columns
-
-````markdown
-#### Two Columns
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
-```
-````
-
-### Single Column
-
-````markdown
-##### Single Columns
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
-```
-````
-
-### Secondary Title
-
-````markdown
-### Three Columns
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
-```
-
-###### Secondary Title
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
-```
-````
-
-### Captions & URL
-
-````markdown
-### Three Columns
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
-```
-Hexo [Cheatsheets](https://github.com/glazec/hexo-cheatsheets) Theme 
-
-```bash
-cd themes/hexo-cheatsheets
-git pull
-```
-> [Cheatsheets](https://github.com/glazec/hexo-cheatsheets)
-````
-
-### Introduction List
-
-```markdown
-###  References
-
-1. [Hexo](https://hexo.io/) _(hexo.io)_
-
-2. [Hexo Cheatsheets](https://github.com/glazec/hexo-cheatsheets) _(hexo-cheatsheets)_
-```
-
-> Must be an ordered list !
-
-### Table & Headless Table 
-
-```markdown
-### Table
-
-| Shortcut | Description         |
-| -------- | ------------------- |
-| `⌘\`     | Toggle tree         |
-| `⌘⇧\`    | Reveal current file |
-
-### Headless Table
-
-|          |                     |
-| -------- | ------------------- |
-| `⌘\`     | Toggle tree         |
-| `⌘⇧\`    | Reveal current file |
-```
-
-## Roadmap
-
-[![IMAGE ALT TEXT HERE](https://www.inevitable.tech/roadmap.png)](https://coda.io/d/User-Feedback_ddjgAWpgIbG)
+## Reference
+1. [glazec/hexo-cheatsheets](https://github.com/glazec/hexo-cheatsheets)
+1. [Hexo Cheatsheets Theme](https://www.inevitable.tech/posts/59f1905d/)
+1. [rstacruz/cheatsheets](https://github.com/rstacruz/cheatsheets)

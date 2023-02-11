@@ -1,8 +1,8 @@
 /*
- * H3 section
+ * h2 section
  */
 
-:is(.h3-section, .h4-section, .h5-section)>.body {
+:is(.h2-section, .h3-section, .h4-section)>.body {
   background: rgb(255, 255, 255);
   box-shadow: $shadow3;
 
@@ -234,7 +234,7 @@
 
   /* Headings in between bodies */
   &>h6 {
-    //h4
+    //h3
     @include font-size(-1);
     background: $gray-bg;
     color: $gray-text;
@@ -304,13 +304,13 @@
 /*
  * Heading
  */
-:is(.h3-section, .h4-section, .h5-section)> :is(h3, h4, h5) {
+:is(.h2-section, .h3-section, .h4-section)> :is(h2, h3, h4) {
   margin-bottom: 16px;
   margin-top: 8px;
   overflow: hidden;
   white-space: nowrap;
 
-  // Mobile: the padding below h3-section is enough
+  // Mobile: the padding below h2-section is enough
   @media (max-width: 768px) {
     margin-top: 0;
   }
@@ -331,7 +331,7 @@
  * Variant: Prime
  */
 
-// .h3-section.-prime > .body {
+// .h2-section.-prime > .body {
 //   @media (min-width: 481px) {
 //     border-radius: 2px;
 //     box-shadow: $shadow6;

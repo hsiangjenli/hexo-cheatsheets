@@ -1,5 +1,5 @@
 /*
- * H3 section list:
+ * h2 section list:
  * The body that is isotoped.
  */
 
@@ -20,14 +20,14 @@
   }
 
   // Each section
-  & > :is(.h3-section, .h4-section, .h5-section) {
+  & > :is(.h2-section, .h3-section, .h4-section) {
     @include section-gutter(padding);
     float: left;
     width: 100%;
   }
 
   @media (min-width: 769px) {
-    & > :is(.h3-section, .h4-section, .h5-section) {
+    & > :is(.h2-section, .h3-section, .h4-section) {
       padding-top: 0;
     }
   }
@@ -39,13 +39,13 @@
 
 // .code-section-list {
 //   @media (min-width: 769px) {
-//     & > .h3-section {
+//     & > .h2-section {
 //       width: 33.3%;
 //     }
-//     & > .h4-section {
+//     & > .h3-section {
 //       width: 50%;
 //     }
-//     & > .h3-section {
+//     & > .h2-section {
 //       width: 100%;
 //     }
 //   }
@@ -56,11 +56,11 @@
  */
 
 // .code-section-list {
-//   & > .h3-section {
+//   & > .h2-section {
 //     width: 33.3%;
 //   }
 
-//   & > .h3-section + .h3-section {
+//   & > .h2-section + .h2-section {
 //     margin-top: 16px;
 //   }
 // }
@@ -71,25 +71,25 @@
 
 .code-section-list {
   @media (min-width: 769px) {
-    & > .h3-section {
+    & > .h2-section {
       width: 50%;
     }
-    & > .h4-section {
+    & > .h3-section {
       width: 100%;
     }
-    & > .h5-section {
+    & > .h4-section {
       width: 100%;
     }
   }
 
   @media (min-width: 961px) {
-    & > .h3-section {
+    & > .h2-section {
       width: 33.33%;
     }
-    & > .h4-section {
+    & > .h3-section {
       width: 50%;
     }
-    & > .h5-section {
+    & > .h4-section {
       width: 100%;
     }
   }
@@ -101,17 +101,17 @@
 
 // .code-section-list.-left-reference {
 //   @media (min-width: 769px) {
-//     & > .h3-section {
+//     & > .h2-section {
 //       width: 50%;
 //     }
 //   }
 
 //   @media (min-width: 961px) {
-//     & > .h3-section {
+//     & > .h2-section {
 //       width: 66.67%;
 //     }
 
-//     & > .h3-section:first-child {
+//     & > .h2-section:first-child {
 //       width: 33.33%;
 //     }
 //   }

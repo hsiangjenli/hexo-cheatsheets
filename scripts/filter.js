@@ -111,7 +111,7 @@ function checkSectionNextSibling(node) {
   // sibling.data: Text node
   if (sibling && (sibling.data || sibling.name == 'p' || sibling.name == 'pre'
     || sibling.name == 'table' || sibling.name == 'ul'
-    || sibling.name == 'ol' || sibling.name == 'h5' || sibling.name == 'blockquote')) {
+    || sibling.name == 'ol' || sibling.name == 'h5'|| sibling.name == 'h6' || sibling.name == 'blockquote')) {
     return [sibling].concat(checkSectionNextSibling(sibling));
   }
   return [];

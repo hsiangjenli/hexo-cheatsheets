@@ -14,10 +14,10 @@ npm install -g sass
 ```yaml
 FROM node:17-alpine
 
-RUN npm install hexo-cli -g
-RUN npm install make -g
-RUN npm install -g sass
-
+WORKDIR /app
+COPY package.json yarn.lock package-lock.json /app/
+RUN npm install hexo-cli make sass -g
+RUN rm -rf node_modules && npm install --force
 RUN set -x \
     && . /etc/os-release \
     && case "$ID" in \
@@ -33,6 +33,8 @@ RUN set -x \
     esac \
     && yarn bin || ( npm install --global yarn && npm cache clean ) \
     && git --version && bash --version && ssh -V && npm -v && node -v && yarn -v
+
+RUN npm audit fix --force
 ```
 
 ## Init project

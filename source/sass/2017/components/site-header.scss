@@ -1,5 +1,7 @@
 .site-header {
   margin: 32px 0;
+  color: $base-a;
+  font-weight: 700;
 
   & > p {
     color: $base-mute;
@@ -14,8 +16,14 @@
 
   & > h1 {
     @include font-size(8);
-    color: $base-head;
-    font-weight: 200;
+    background-image: linear-gradient(90deg, $base-a3, $base-a, $base-a7);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-weight: 700;
     line-height: 1.2;
     margin: 0;
     margin-bottom: 16px;

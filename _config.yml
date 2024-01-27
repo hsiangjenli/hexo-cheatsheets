@@ -1,7 +1,7 @@
 favicon: "/img/ico.svg"
 
 hexo_theme: "https://github.com/glazec/hexo-cheatsheets"
-hexo_theme_text: "Contribute to the theme"
+hexo_theme_text: "theme"
 
 github: "https://github.com/hsiangjenli"
 about: "https://hsiangjenli.github.io/"

@@ -11,22 +11,31 @@
   }
 
   & > h1 {
-    @include font-size(8);
+    @include font-size(7);
     font-family: $body-font;
-    font-weight: 200;
+    font-weight: bold;
     line-height: 1.2;
     margin: 0;
   }
 
   & > h1 > em {
-    color: lighten($gray-text, 20%);
+    @include font-size(4);
+    color: lighten($gray-text, 20%) !important;
     font-style: normal;
+    font-weight: normal;
   }
 }
 
 .main-heading.-center {
   & > h1 {
     text-align: center;
+    background-image: linear-gradient(90deg, $base-a3, $base-a, $base-a7);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
   }
 
   & > .adbox {

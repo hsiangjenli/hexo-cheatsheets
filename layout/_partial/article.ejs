@@ -6,7 +6,15 @@
 >
   <div class="body-area">
     <header class="main-heading -center" role="banner">
-      <h1 class="h1"><%= post.title %> <em> <%= post.version %> </em></h1>
+      <h1 class="h1"><%= post.title %></h1>
+      
+      <% if (post.collaborate) { %>
+          <center>  
+            <span class="collaborate-button">
+              <a href="<%= post.collaborate %>" style="color: white;"><i class="fa-solid fa-user-pen"></i> Collaborative Writing</a>
+            </span>
+          </center>
+      <% } %>
     </header>
 
     <main

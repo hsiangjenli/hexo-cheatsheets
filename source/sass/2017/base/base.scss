@@ -112,3 +112,21 @@ a:hover {
   font-size: medium;
   border-radius: 1rem;
 }
+
+.collaborate-button {
+  padding: .4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: .2rem;
+  border-radius: .25rem;
+  background-image: linear-gradient(90deg, $base-a, $base-a, $base-a3);
+  -webkit-text-fill-color: white; 
+  font-size: smaller;
+  font-weight: bolder;
+  text-decoration: none;
+  text-align: center;
+}
+.collaborate-button a:link { text-decoration: none; }
+.collaborate-button a:visited { text-decoration: none; }
+.collaborate-button a:hover { text-decoration: none; }
+.collaborate-button a:active { text-decoration: none; }
